@@ -4,4 +4,4 @@ spring:
 
 
 gigachat:
-  auth-key: YjcxYjA0YzctODgzMi00NGI1LWFiZmQtODRiYzg1ZWNlMWU5OjNiMThjN2Q2LTZjMGMtNDMzNS05Y2IzLWQ2ZDIyMDI5NmFmNQ==
+  auth-key: ${giga_chat_auth_token}
