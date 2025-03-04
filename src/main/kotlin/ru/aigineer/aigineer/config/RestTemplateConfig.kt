@@ -29,7 +29,6 @@ class RestTemplateConfig {
             .loadTrustMaterial { _, _ -> true }
             .build()
 
-        //val sf = SSLConnectionSocketFactory(sslContext, NoopHostnameVerifier.INSTANCE)
         val tlsStrategy = DefaultClientTlsStrategy(sslContext)
         val connectionManager: HttpClientConnectionManager = PoolingHttpClientConnectionManagerBuilder
             .create()
