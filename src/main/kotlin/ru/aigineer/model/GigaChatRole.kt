@@ -1,4 +1,4 @@
-package ru.aigineer.aigineer.model
+package ru.aigineer.model
 
 import com.fasterxml.jackson.annotation.JsonValue
 

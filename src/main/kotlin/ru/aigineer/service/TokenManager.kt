@@ -1,4 +1,4 @@
-package ru.aigineer.aigineer.service
+package ru.aigineer.service
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import jakarta.annotation.PostConstruct
@@ -10,14 +10,11 @@ import org.springframework.http.HttpMethod
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
-import ru.aigineer.aigineer.config.GIGA_CHAT_REST_TEMPLATE_BEAN_NAME
-import ru.aigineer.aigineer.model.dto.AccessTokenResponse
-import ru.aigineer.aigineer.service.util.AUTH_URL
 import java.util.*
 
 @Service
 class TokenManager(
-    @Qualifier(GIGA_CHAT_REST_TEMPLATE_BEAN_NAME)
+    @Qualifier(ru.aigineer.config.GIGA_CHAT_REST_TEMPLATE_BEAN_NAME)
     private val restTemplate: RestTemplate,
     private val objectMapper: ObjectMapper,
 ) {
@@ -43,8 +40,14 @@ class TokenManager(
 
             val body = "scope=GIGACHAT_API_PERS"
             val requestEntity = HttpEntity(body, headers)
-            val response = restTemplate.exchange(AUTH_URL, HttpMethod.POST, requestEntity, String::class.java)
-            val tokenResponse = objectMapper.readValue(response.body, AccessTokenResponse::class.java)
+            val response = restTemplate.exchange(
+                ru.aigineer.service.util.AUTH_URL,
+                HttpMethod.POST,
+                requestEntity,
+                String::class.java
+            )
+            val tokenResponse =
+                objectMapper.readValue(response.body, ru.aigineer.model.dto.response.AccessTokenResponse::class.java)
             expTime = tokenResponse.expiresAt
             refreshToken = tokenResponse.accessToken
         }

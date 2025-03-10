@@ -1,4 +1,4 @@
-package ru.aigineer.aigineer.model.dto
+package ru.aigineer.model.dto.response
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

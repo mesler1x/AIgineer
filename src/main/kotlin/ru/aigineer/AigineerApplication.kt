@@ -1,4 +1,4 @@
-package ru.aigineer.aigineer
+package ru.aigineer
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class AigineerApplication
 
 fun main(args: Array<String>) {
-    runApplication<AigineerApplication>(*args)
+    runApplication<ru.aigineer.AigineerApplication>(*args)
 }

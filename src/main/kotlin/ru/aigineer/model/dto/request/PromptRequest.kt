@@ -1,6 +1,6 @@
-package ru.aigineer.aigineer.model.dto
+package ru.aigineer.model.dto.request
 
-import java.util.UUID
+import java.util.*
 
 class PromptRequest(
     val mainContent: String,
