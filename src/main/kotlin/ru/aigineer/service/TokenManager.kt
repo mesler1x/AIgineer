@@ -10,11 +10,13 @@ import org.springframework.http.HttpMethod
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
+import ru.aigineer.config.GIGA_CHAT_REST_TEMPLATE_BEAN_NAME
+import ru.aigineer.model.dto.response.AccessTokenResponse
 import java.util.*
 
 @Service
 class TokenManager(
-    @Qualifier(ru.aigineer.config.GIGA_CHAT_REST_TEMPLATE_BEAN_NAME)
+    @Qualifier(GIGA_CHAT_REST_TEMPLATE_BEAN_NAME)
     private val restTemplate: RestTemplate,
     private val objectMapper: ObjectMapper,
 ) {
@@ -47,7 +49,7 @@ class TokenManager(
                 String::class.java
             )
             val tokenResponse =
-                objectMapper.readValue(response.body, ru.aigineer.model.dto.response.AccessTokenResponse::class.java)
+                objectMapper.readValue(response.body, AccessTokenResponse::class.java)
             expTime = tokenResponse.expiresAt
             refreshToken = tokenResponse.accessToken
         }

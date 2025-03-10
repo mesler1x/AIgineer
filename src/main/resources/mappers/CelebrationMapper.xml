@@ -2,5 +2,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ru.aigineer.dao.mappers.CelebrationMapper">
-
+    <select id="findAll" resultType="ru.aigineer.model.dto.response.CelebrationResponse">
+        SELECT id, name FROM celebration
+    </select>
 </mapper>

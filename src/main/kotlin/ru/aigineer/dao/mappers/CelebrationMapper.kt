@@ -1,7 +1,9 @@
 package ru.aigineer.dao.mappers
 
 import org.apache.ibatis.annotations.Mapper
+import ru.aigineer.model.dto.response.CelebrationResponse
 
 @Mapper
-class CelebrationMapper {
+interface CelebrationMapper {
+    fun findAll(): List<CelebrationResponse>
 }

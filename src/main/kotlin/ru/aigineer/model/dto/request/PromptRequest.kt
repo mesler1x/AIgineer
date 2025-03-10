@@ -4,6 +4,7 @@ import java.util.*
 
 class PromptRequest(
     val mainContent: String,
+    val serviceId: String,
     val celebrationId: UUID,
     val toneId: UUID,
     val styleType: UUID,

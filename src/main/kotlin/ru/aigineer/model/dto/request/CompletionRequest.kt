@@ -1,8 +1,11 @@
 package ru.aigineer.model.dto.request
 
+import ru.aigineer.model.GigaChatModel
+import ru.aigineer.model.Message
+
 class CompletionRequest(
-    val model: ru.aigineer.model.GigaChatModel,
-    val messages: List<ru.aigineer.model.Message>,
+    val model: GigaChatModel,
+    val messages: List<Message>,
     val temperature: Double
 ) {
 }

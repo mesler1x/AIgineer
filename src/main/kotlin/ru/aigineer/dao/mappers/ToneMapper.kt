@@ -1,7 +1,9 @@
 package ru.aigineer.dao.mappers
 
 import org.apache.ibatis.annotations.Mapper
+import ru.aigineer.model.dto.response.ToneResponse
 
 @Mapper
-class ToneMapper {
+interface ToneMapper {
+    fun findAll(): List<ToneResponse>
 }
