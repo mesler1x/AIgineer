@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate
 class GigaChatService(
     @Qualifier(ru.aigineer.config.GIGA_CHAT_REST_TEMPLATE_BEAN_NAME)
     private val restTemplate: RestTemplate,
-    private val tokenManager: ru.aigineer.service.TokenManager,
+    private val tokenManager: TokenManager,
     private val objectMapper: ObjectMapper = ObjectMapper().registerKotlinModule()
 ) {
 
