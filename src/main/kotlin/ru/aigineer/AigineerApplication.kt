@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class AigineerApplication
 
 fun main(args: Array<String>) {
-    runApplication<ru.aigineer.AigineerApplication>(*args)
+    runApplication<AigineerApplication>(*args)
 }
