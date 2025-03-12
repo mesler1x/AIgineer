@@ -47,3 +47,9 @@ INSERT INTO prompt (content, prompt_type, llm_service_id) VALUES ('
 Учти дополнительные пожелания, если они присутствуют ниже:
 [%s]
 ', 'GENERATIVE', '550e8400-e29b-41d4-a716-446655440000');
+
+INSERT INTO celebration (id, name) VALUES ('32e755e4-d742-4ece-baa9-b16aa7fbe5ae','День Рождения');
+
+INSERT INTO style (id, name) VALUES ('418f0551-5609-40fb-a77f-84265f4b1c92','Короткий и лаконичный');
+
+INSERT INTO tone (id, name) VALUES ('4889668a-9305-4648-bd44-0f3177b9a7e3','Теплый');

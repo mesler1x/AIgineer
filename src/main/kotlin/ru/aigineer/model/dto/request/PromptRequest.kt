@@ -11,7 +11,7 @@ class PromptRequest(
     @field:NotNull
     val toneId: UUID,
     @field:NotNull
-    val styleType: UUID,
+    val styleId: UUID,
     @field:NotNull
     val receiverName: String,
     val additionalWishes: String?

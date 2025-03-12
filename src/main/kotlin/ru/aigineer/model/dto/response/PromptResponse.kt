@@ -9,4 +9,5 @@ class PromptResponse(
     val llmServiceId: UUID,
     val deleted: Boolean,
 ) {
+
 }

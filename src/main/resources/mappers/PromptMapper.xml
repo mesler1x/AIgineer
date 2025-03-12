@@ -21,7 +21,7 @@
         FROM prompt WHERE id = #{id}
     </select>
 
-    <select id="findById" resultType="ru.aigineer.model.dto.response.PromptResponse">
+    <select id="findByServiceId" resultType="ru.aigineer.model.dto.response.PromptResponse">
         SELECT id,
             content,
             prompt_type as promptType,

@@ -1,7 +1,5 @@
 package ru.aigineer.service
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
@@ -11,31 +9,31 @@ import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 import ru.aigineer.config.GIGA_CHAT_REST_TEMPLATE_BEAN_NAME
 import ru.aigineer.model.GigaChatModel
+import ru.aigineer.model.dto.response.GigaChatResponse
 import ru.aigineer.model.GigaChatRole
 import ru.aigineer.model.Message
 import ru.aigineer.model.dto.request.CompletionRequest
 import ru.aigineer.model.dto.request.PromptRequest
+import ru.aigineer.model.dto.response.CommonGenerativeContentResponse
 import ru.aigineer.model.dto.response.PromptResponse
 import ru.aigineer.service.util.COMPLETIONS_URL
+import java.util.*
 
 @Service
 class GigaChatService(
     @Qualifier(GIGA_CHAT_REST_TEMPLATE_BEAN_NAME)
     private val restTemplate: RestTemplate,
     private val tokenManager: TokenManager,
-    private val objectMapper: ObjectMapper = ObjectMapper().registerKotlinModule(),
     private val celebrationService: CelebrationService,
     private val toneService: ToneService,
     private val styleService: StyleService,
-    private val aigineerLlmService: AigineerLlmService,
     private val promptService: PromptService,
 ) {
 
-    fun sendMessage(promptRequest: PromptRequest): PromptResponse {
-        //TODO - caching
+    fun sendMessage(promptRequest: PromptRequest): CommonGenerativeContentResponse {
         val celebration = celebrationService.findById(promptRequest.celebrationId)
         val tone = toneService.findById(promptRequest.toneId)
-        val style = styleService.findById(promptRequest.toneId)
+        val style = styleService.findById(promptRequest.styleId)
         val prompt = promptService.findByServiceId(promptRequest.serviceId)
         val content = String.format(
             prompt.content,
@@ -44,10 +42,11 @@ class GigaChatService(
             style.name, tone.name,
             promptRequest.additionalWishes
         )
+
         return performRequestToGigaChat(content)
     }
 
-    private fun performRequestToGigaChat(content: String): PromptResponse? {
+    private fun performRequestToGigaChat(content: String): CommonGenerativeContentResponse {
         val headers = HttpHeaders().apply {
             contentType = MediaType.APPLICATION_JSON
             accept = listOf(MediaType.APPLICATION_JSON)
@@ -65,9 +64,8 @@ class GigaChatService(
             COMPLETIONS_URL,
             HttpMethod.POST,
             requestEntity,
-            String::class.java
+            GigaChatResponse::class.java
         )
-        //TODO - serialize
-        return objectMapper.readValue(response.body, PromptResponse::class.java)
+        return CommonGenerativeContentResponse(response.body!!.choices[0].message.content)
     }
 }
