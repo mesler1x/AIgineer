@@ -3,4 +3,30 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ru.aigineer.dao.mappers.PromptMapper">
 
+    <select id="findAll" resultType="ru.aigineer.model.dto.response.PromptResponse">
+        SELECT id,
+            content,
+            prompt_type as promptType,
+            llm_service_id as llmServiceId,
+            deleted
+        FROM prompt
+    </select>
+
+    <select id="findById" resultType="ru.aigineer.model.dto.response.PromptResponse">
+        SELECT id,
+            content,
+            prompt_type as promptType,
+            llm_service_id as llmServiceId,
+            deleted
+        FROM prompt WHERE id = #{id}
+    </select>
+
+    <select id="findById" resultType="ru.aigineer.model.dto.response.PromptResponse">
+        SELECT id,
+            content,
+            prompt_type as promptType,
+            llm_service_id as llmServiceId,
+            deleted
+        FROM prompt WHERE llm_service_id = #{serviceId}
+    </select>
 </mapper>

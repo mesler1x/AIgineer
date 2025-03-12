@@ -5,4 +5,8 @@
     <select id="findAll" resultType="ru.aigineer.model.dto.response.ToneResponse">
         SELECT id, name FROM tone
     </select>
+
+    <select id="findById" resultType="ru.aigineer.model.dto.response.ToneResponse">
+        SELECT id, name FROM tone WHERE id = #{id}
+    </select>
 </mapper>

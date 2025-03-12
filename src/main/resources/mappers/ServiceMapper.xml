@@ -5,4 +5,8 @@
     <select id="findAll" resultType="ru.aigineer.model.dto.response.ServiceResponse">
         SELECT id, service_name as serviceName, description as serviceDescription FROM llm_service
     </select>
+
+    <select id="findById" resultType="ru.aigineer.model.dto.response.ServiceResponse">
+        SELECT id, service_name as serviceName, description as serviceDescription FROM llm_service WHERE id = #{id}
+    </select>
 </mapper>

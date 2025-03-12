@@ -1,5 +1,7 @@
 package ru.aigineer.controller
 
+import io.swagger.v3.oas.annotations.Operation
+import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -15,8 +17,9 @@ class GigaChatController(
 ) {
 
 
+    @Operation(summary = "Отправка сообщения на генерацию текста")
     @PostMapping("/send")
-    fun sendMessage(@RequestBody promptRequest: PromptRequest): PromptResponse {
+    fun sendMessage(@Valid @RequestBody promptRequest: PromptRequest): PromptResponse {
         return gigaChatService.sendMessage(promptRequest)
     }
 }

@@ -4,6 +4,8 @@ import org.springframework.stereotype.Repository
 import ru.aigineer.dao.mappers.ServiceMapper
 import ru.aigineer.model.dto.response.CelebrationResponse
 import ru.aigineer.model.dto.response.ServiceResponse
+import java.util.Optional
+import java.util.UUID
 
 @Repository
 class ServiceDao(
@@ -11,5 +13,9 @@ class ServiceDao(
 ) {
     fun findAll(): List<ServiceResponse> {
         return mapper.findAll()
+    }
+
+    fun findById(id: UUID): ServiceResponse? {
+        return mapper.findById(id)
     }
 }

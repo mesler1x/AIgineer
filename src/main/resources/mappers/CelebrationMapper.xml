@@ -5,4 +5,8 @@
     <select id="findAll" resultType="ru.aigineer.model.dto.response.CelebrationResponse">
         SELECT id, name FROM celebration
     </select>
+
+    <select id="findById" resultType="ru.aigineer.model.dto.response.CelebrationResponse">
+        SELECT id, name FROM celebration WHERE id = #{id}
+    </select>
 </mapper>

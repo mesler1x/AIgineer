@@ -1,12 +1,18 @@
 package ru.aigineer.model.dto.request
 
+import org.jetbrains.annotations.NotNull
 import java.util.*
 
 class PromptRequest(
-    val mainContent: String,
+    @field:NotNull
     val serviceId: UUID,
+    @field:NotNull
     val celebrationId: UUID,
+    @field:NotNull
     val toneId: UUID,
+    @field:NotNull
     val styleType: UUID,
-    val receiverName: String
+    @field:NotNull
+    val receiverName: String,
+    val additionalWishes: String?
 )
