@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  aigineer-back:
+    build:
+      dockerfile: ./Dockerfile
+    hostname: aigineer-back
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_URI=jdbc:postgresql://aigineer_psql:5432/aigineer_db
+      - DB_USR=postgres
+      - DB_PASS=postgres
+      - GIGA_CHAT_AUTH_TOKEN=
+    networks:
+      - common-network
+
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    hostname: aigineer_psql
+    volumes:
+      - ./database-scripts/init:/docker-entrypoint-initdb.d
+    ports:
+      - "6432:5432"
+    networks:
+      - common-network
+
+networks:
+  common-network:
+    driver: bridge

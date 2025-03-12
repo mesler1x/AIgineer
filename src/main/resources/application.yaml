@@ -2,6 +2,10 @@ spring:
   application:
     name: aigineer
 
+datasource:
+  url: ${DB_URI:jdbc:postgresql://localhost:6432/aigineer_db}
+  username: ${DB_USR:postgres}
+  password: ${DB_PASS:postgres}
 
 gigachat:
-  auth-key: ${giga_chat_auth_token}
+  auth-key: ${GIGA_CHAT_AUTH_TOKEN}

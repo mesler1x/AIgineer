@@ -1,0 +1,12 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ru.aigineer.dao.mappers.ToneMapper">
+    <select id="findAll" resultType="ru.aigineer.model.dto.response.ToneResponse">
+        SELECT id, name FROM tone
+    </select>
+
+    <select id="findById" resultType="ru.aigineer.model.dto.response.ToneResponse">
+        SELECT id, name FROM tone WHERE id = #{id}
+    </select>
+</mapper>
