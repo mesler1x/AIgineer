@@ -1,6 +1,8 @@
 CREATE DATABASE aigineer_db;
 GRANT ALL PRIVILEGES ON DATABASE aigineer_db TO postgres;
 
+\c aigineer_db
+
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE celebration
