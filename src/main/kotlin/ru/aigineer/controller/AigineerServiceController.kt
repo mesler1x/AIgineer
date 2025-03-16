@@ -9,8 +9,8 @@ import ru.aigineer.model.dto.response.ServiceResponse
 import ru.aigineer.service.AigineerLlmService
 
 @RestController
+@RequestMapping("/service")
 @CrossOrigin(origins = ["http://localhost:5173", "*"])
-@RequestMapping("/service", produces = [MediaType.APPLICATION_JSON_VALUE], consumes = [MediaType.APPLICATION_JSON_VALUE])
 class AigineerServiceController(
     private val aigineerLlmService: AigineerLlmService
 ) {

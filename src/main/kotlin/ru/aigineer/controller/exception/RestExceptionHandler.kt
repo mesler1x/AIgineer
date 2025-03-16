@@ -15,6 +15,6 @@ class RestExceptionHandler {
             errorMessage = e.message,
             errorCode = HttpStatus.NOT_FOUND.value()
         )
-        return ResponseEntity(response, HttpStatus.NOT_FOUND)
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response)
     }
 }
