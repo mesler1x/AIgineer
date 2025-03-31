@@ -50,8 +50,32 @@ INSERT INTO prompt (content, prompt_type, llm_service_id) VALUES ('
 [%s]
 ', 'GENERATIVE', '550e8400-e29b-41d4-a716-446655440000');
 
-INSERT INTO celebration (id, name) VALUES ('32e755e4-d742-4ece-baa9-b16aa7fbe5ae','День Рождения');
+INSERT INTO celebration (name) VALUES ('День Рождения');
+INSERT INTO celebration (name) VALUES ('Новый год');
+INSERT INTO celebration (name) VALUES ('День матери');
+INSERT INTO celebration (name) VALUES ('Международный женский день');
+INSERT INTO celebration (name) VALUES ('День защитника отечества');
+INSERT INTO celebration (name) VALUES ('День победы');
+INSERT INTO celebration (name) VALUES ('День учителя');
+INSERT INTO celebration (name) VALUES ('Масленица');
+INSERT INTO celebration (name) VALUES ('Рождество Христово');
+INSERT INTO celebration (name) VALUES ('День России');
+INSERT INTO celebration (name) VALUES ('День народного единства');
+INSERT INTO celebration (name) VALUES ('День знаний');
+INSERT INTO celebration (name) VALUES ('День космонавтики');
+INSERT INTO celebration (name) VALUES ('День семьи, любви и верности');
 
-INSERT INTO style (id, name) VALUES ('418f0551-5609-40fb-a77f-84265f4b1c92','Короткий и лаконичный');
 
-INSERT INTO tone (id, name) VALUES ('4889668a-9305-4648-bd44-0f3177b9a7e3','Теплый');
+INSERT INTO style (name) VALUES ('Короткий и лаконичный');
+INSERT INTO style (name) VALUES ('Официальный');
+INSERT INTO style (name) VALUES ('Неофициальный');
+INSERT INTO style (name) VALUES ('Эмоциональный');
+INSERT INTO style (name) VALUES ('Научный');
+INSERT INTO style (name) VALUES ('Юмористический');
+
+INSERT INTO tone (name) VALUES ('Теплый');
+INSERT INTO tone (name) VALUES ('Нейтральный');
+INSERT INTO tone (name) VALUES ('Возвышенный');
+INSERT INTO tone (name) VALUES ('Воодушевляющий');
+INSERT INTO tone (name) VALUES ('Утешительный');
+INSERT INTO tone (name) VALUES ('Осторожный');
