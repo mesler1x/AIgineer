@@ -10,8 +10,8 @@ scrape_configs:
       - targets: ['node_exporter:9100']
 
 remote_read:
-  - url: "https://monitoring.api.cloud.yandex.net/prometheus/workspaces/monn9v3sbfhcg3egk0va/api/v1/read"
-    bearer_token: ${YANDEX_API_KEY}
+  - url: 'https://monitoring.api.cloud.yandex.net/prometheus/workspaces/monn9v3sbfhcg3egk0va/api/v1/read'
+    bearer_token: '${YANDEX_API_KEY}'
     headers:
       X-Lookback-Delta: "5m"
 EOF
