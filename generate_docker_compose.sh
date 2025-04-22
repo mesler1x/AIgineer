@@ -1,3 +1,6 @@
+#!/bin/bash
+
+cat <<EOF > docker-compose.yml
 version: "3.9"
 services:
   aigineer-back:
@@ -10,7 +13,7 @@ services:
       - DB_URI=jdbc:postgresql://aigineer_psql:5432/aigineer_db
       - DB_USR=postgres
       - DB_PASS=postgres
-      - GIGA_CHAT_AUTH_TOKEN=
+      - GIGA_CHAT_AUTH_TOKEN=${GIGA_CHAT_AUTH_TOKEN}
     networks:
       - common-network
     depends_on:
@@ -62,3 +65,6 @@ services:
 networks:
   common-network:
     driver: bridge
+EOF
+
+echo "docker-compose.yml has been generated."
