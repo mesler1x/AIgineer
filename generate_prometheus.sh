@@ -7,7 +7,7 @@ global:
 scrape_configs:
   - job_name: 'node_prometheus'
     static_configs:
-      - targets: ['localhost:9100', 'localhost:9090']
+      - targets: ['http://aigineer.ru:9100', 'http://aigineer.ru:9090']
 
 remote_read:
   - url: 'https://monitoring.api.cloud.yandex.net/prometheus/workspaces/monn9v3sbfhcg3egk0va/api/v1/read'
