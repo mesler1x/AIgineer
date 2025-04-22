@@ -5,9 +5,9 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
-  - job_name: 'node_exporter'
+  - job_name: 'node_prometheus'
     static_configs:
-      - targets: ['node_exporter:9100']
+      - targets: ['localhost:9100', 'localhost:9090']
 
 remote_read:
   - url: 'https://monitoring.api.cloud.yandex.net/prometheus/workspaces/monn9v3sbfhcg3egk0va/api/v1/read'
