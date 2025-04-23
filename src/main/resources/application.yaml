@@ -7,5 +7,14 @@ datasource:
   username: ${DB_USR:postgres}
   password: ${DB_PASS:postgres}
 
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 gigachat:
   auth-key: ${GIGA_CHAT_AUTH_TOKEN}

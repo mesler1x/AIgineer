@@ -5,6 +5,11 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
+ - job_name: 'aigineer-backend'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['aigineer.ru:8080']
+
   - job_name: 'node_prometheus'
     static_configs:
       - targets: ['localhost:9090','aigineer.ru:9100']

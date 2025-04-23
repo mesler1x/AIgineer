@@ -1,5 +1,7 @@
 package ru.aigineer.service
 
+import io.micrometer.core.instrument.Counter
+import io.micrometer.core.instrument.MeterRegistry
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
@@ -28,7 +30,11 @@ class GigaChatService(
     private val toneService: ToneService,
     private val styleService: StyleService,
     private val promptService: PromptService,
+    meterRegistry: MeterRegistry
 ) {
+    private val gigaChatCounter: Counter = Counter.builder("giga_chat_requests")
+        .description("Number of requests sent to GigaChat")
+        .register(meterRegistry)
 
     fun sendMessage(promptRequest: PromptRequest): CommonGenerativeContentResponse {
         val celebration = celebrationService.findById(promptRequest.celebrationId)
@@ -66,6 +72,7 @@ class GigaChatService(
             requestEntity,
             GigaChatResponse::class.java
         )
+        gigaChatCounter.increment()
         return CommonGenerativeContentResponse(response.body!!.choices[0].message.content)
     }
 }
