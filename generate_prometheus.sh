@@ -5,7 +5,7 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
- - job_name: 'aigineer-backend'
+  - job_name: 'aigineer-backend'
     metrics_path: '/actuator/prometheus'
     static_configs:
       - targets: ['aigineer.ru:8080']
