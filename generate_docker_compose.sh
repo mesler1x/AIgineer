@@ -55,10 +55,13 @@ services:
     image: grafana/grafana:latest
     ports:
       - "3000:3000"
+    volumes:
+      - /var/lib/docker/volumes/grafana-storage:/var/lib/grafana
     networks:
       - common-network
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
+    user: "$UID:$GID"
     depends_on:
       - prometheus
 

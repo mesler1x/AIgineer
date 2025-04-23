@@ -1,6 +1,9 @@
 spring:
   application:
     name: aigineer
+  datasource:
+    hikari:
+      pool-name: aiginner-hikari-pool
 
 datasource:
   url: ${DB_URI:jdbc:postgresql://localhost:6432/aigineer_db}
